@@ -7,7 +7,7 @@ import path from "path";
 
 import { connectDB } from "./lib/db.js";
 import authRoutes from "./routes/auth.route.js";
-import messageRoutes from "./models/message.model.js";
+import messageRoutes from "./routes/message.routes.js";
 import { app, server } from "./lib/socket.js";
 
 
@@ -30,7 +30,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use("/api/auth/", authRoutes);
-app.use("api/messages", messageRoutes);
+app.use("/api/messages", messageRoutes);
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../frontend/dist")))
