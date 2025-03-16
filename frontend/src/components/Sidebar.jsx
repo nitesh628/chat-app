@@ -15,14 +15,16 @@ const Sidebar = () => {
     getUsers();
   }, [getUsers]);
 
-  console.log(getUsers);
+  // console.log(getUsers);
 
-  console.log(onlineUsers);
-  console.log(users);
+  // console.log(onlineUsers);
+  // console.log(users);
 
   const filteredUsers = showOnlineOnly
     ? users.filter((user) => onlineUsers.includes(user._id))
     : users;
+
+    console.log(onlineUsers, 'users')
 
   if (isUsersLoading) return <SidebarSkeleton />;
 
